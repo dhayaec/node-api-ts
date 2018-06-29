@@ -1,13 +1,13 @@
 // home 
-GET http://localhost:3001
+GET http://localhost:3000
 
 ###
 
-GET http://localhost:3001/contact
+GET http://localhost:3000/contact
 
 ###
 
-POST http://localhost:3001/contact HTTP/1.1
+POST http://localhost:3000/contact HTTP/1.1
 content-type: application/json
 
 {
@@ -20,10 +20,10 @@ content-type: application/json
 
 ###
 
-GET http://localhost:3001/contact/5b35dac800f845c606a661bc
+GET http://localhost:3000/contact/5b35dac800f845c606a661bc
 
 ###
-PUT  http://localhost:3001/contact/5b35dac800f845c606a661bc HTTP/1.1
+PUT  http://localhost:3000/contact/5b35dac800f845c606a661bc HTTP/1.1
 content-type: application/json
 
 {
@@ -35,5 +35,5 @@ content-type: application/json
 }
 
 ### 
-DELETE http://localhost:3001/contact/5b35dac800f845c606a661bc
+DELETE http://localhost:3000/contact/5b35dac800f845c606a661bc
 

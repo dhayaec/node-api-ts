@@ -1,12 +1,12 @@
-import { ContactSchema } from './../models/crmModel';
+import { contactSchema } from './../models/crmModel';
 import * as mongoose from 'mongoose';
 import { Request, Response } from 'express';
 
-const Contact = mongoose.model('Contact', ContactSchema);
+const contactModel = mongoose.model('Contact', contactSchema);
 
 export class ContactController {
   public addNewContact(req: Request, res: Response) {
-    let newContact = new Contact(req.body);
+    const newContact = new contactModel(req.body);
     newContact.save((err, contact) => {
       if (err) {
         res.send(err);
@@ -16,7 +16,7 @@ export class ContactController {
   }
 
   public getContact(req: Request, res: Response) {
-    Contact.find({}, (err, contacts) => {
+    contactModel.find({}, (err, contacts) => {
       if (err) {
         res.send(err);
       }
@@ -25,7 +25,7 @@ export class ContactController {
   }
 
   public getContactById(req: Request, res: Response) {
-    Contact.findOne({ _id: req.params.contactId }, (err, contact) => {
+    contactModel.findOne({ _id: req.params.contactId }, (err, contact) => {
       if (err) {
         res.send(err);
       }
@@ -34,7 +34,7 @@ export class ContactController {
   }
 
   public updateContact(req: Request, res: Response) {
-    Contact.findOneAndUpdate(
+    contactModel.findOneAndUpdate(
       { _id: req.params.contactId },
       req.body,
       { new: true },
@@ -43,12 +43,15 @@ export class ContactController {
           res.send(err);
         }
         res.send(contact);
-      }
+      },
     );
   }
 
   public deleteContact(req: Request, res: Response) {
-    Contact.deleteOne({ _id: req.params.contactId }, err => {
+    const { contactId } = req.params;
+    const add = (a, b) => a + b;
+    const some = contactId + add(7, 5);
+    contactModel.deleteOne({ _id: contactId }, err => {
       if (err) {
         res.send(err);
       }

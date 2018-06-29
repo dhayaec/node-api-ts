@@ -1,13 +1,13 @@
 import { ContactController } from './../controllers/crmControllers';
-import { Request, Response } from 'express';
+import { Request, Response, Application } from 'express';
 
 export class Routes {
   public contactController: ContactController = new ContactController();
 
-  public routes(app): void {
+  public routes(app: Application): void {
     app.route('/').get((req: Request, res: Response) => {
       res.status(200).send({
-        message: 'welcome'
+        message: 'welcome',
       });
     });
 

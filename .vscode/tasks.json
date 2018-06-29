@@ -1,0 +1,11 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "identifier": "compile",
+      "type": "npm",
+      "script": "build",
+      "problemMatcher": []
+    }
+  ]
+}

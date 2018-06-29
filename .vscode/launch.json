@@ -5,10 +5,16 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "program": "${workspaceFolder}/dist/server.js",
       "type": "node",
       "request": "launch",
-      "name": "Launch Program",
-      "program": "${workspaceFolder}/dist/server.js"
+      "name": "Launch current file w/ ts-node",
+      "protocol": "inspector",
+      "args": ["${relativeFile}"],
+      "cwd": "${workspaceRoot}",
+      "runtimeArgs": ["-r", "ts-node/register"],
+      "internalConsoleOptions": "openOnSessionStart",
+      "preLaunchTask": "compile"
     }
   ]
 }
