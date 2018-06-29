@@ -1,0 +1,39 @@
+// home 
+GET http://localhost:3001
+
+###
+
+GET http://localhost:3001/contact
+
+###
+
+POST http://localhost:3001/contact HTTP/1.1
+content-type: application/json
+
+{
+    "firstName":"Dhaya",
+    "lastName":"Anand",
+    "email":"dhayaec@gmail.com",
+    "company":"ABC Corp",
+    "phone":9445725619
+}
+
+###
+
+GET http://localhost:3001/contact/5b35dac800f845c606a661bc
+
+###
+PUT  http://localhost:3001/contact/5b35dac800f845c606a661bc HTTP/1.1
+content-type: application/json
+
+{
+    "firstName":"Raj",
+    "lastName":"Ram",
+    "email":"raj@gmail.com",
+    "company":"Raj Corp",
+    "phone":234234234 
+}
+
+### 
+DELETE http://localhost:3001/contact/5b35dac800f845c606a661bc
+
