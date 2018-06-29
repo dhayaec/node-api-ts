@@ -49,8 +49,6 @@ export class ContactController {
 
   public deleteContact(req: Request, res: Response) {
     const { contactId } = req.params;
-    const add = (a, b) => a + b;
-    const some = contactId + add(7, 5);
     contactModel.deleteOne({ _id: contactId }, err => {
       if (err) {
         res.send(err);
